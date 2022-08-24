@@ -6,7 +6,7 @@ public class HelicopterController : MonoBehaviour
     [SerializeField] private float _liftingSpeed = 3;
     [SerializeField] private float _rotationSpeed = 5;
     
-    private readonly Vector2 _center = new Vector2(Screen.width / 2, Screen.height / 2);
+    private readonly Vector2 _controlButtonsStartPosr = new Vector2(Screen.width / 2, Screen.height / 2 + 50);
     private const float BackOrDown = -1;
     private const float ForwardOrUp = 1;
 
@@ -48,28 +48,28 @@ public class HelicopterController : MonoBehaviour
 
     private void CheckHelicopterGuiControls()
     {
-        if (GUI.RepeatButton(new Rect(_center.x - 160, _center.y + 100, 100, 50), "Up(Q)"))
+        if (GUI.RepeatButton(new Rect(_controlButtonsStartPosr.x - 160, _controlButtonsStartPosr.y + 100, 100, 50), "Up(Q)"))
         {
             MoveHelicopter(ForwardOrUp, 0);
         }
-        if (GUI.RepeatButton(new Rect(_center.x + 60, _center.y + 100, 100, 50), "Down(E)"))
+        if (GUI.RepeatButton(new Rect(_controlButtonsStartPosr.x + 60, _controlButtonsStartPosr.y + 100, 100, 50), "Down(E)"))
         {
             MoveHelicopter(BackOrDown, 0);
         }
 
-        if (GUI.RepeatButton(new Rect(_center.x - 50, _center.y + 100, 100, 50), "Forward(W)"))
+        if (GUI.RepeatButton(new Rect(_controlButtonsStartPosr.x - 50, _controlButtonsStartPosr.y + 100, 100, 50), "Forward(W)"))
         {
             MoveHelicopter(0, ForwardOrUp);
         }
-        if (GUI.RepeatButton(new Rect(_center.x - 50, _center.y + 160, 100, 50), "Backward(S)"))
+        if (GUI.RepeatButton(new Rect(_controlButtonsStartPosr.x - 50, _controlButtonsStartPosr.y + 160, 100, 50), "Backward(S)"))
         {
             MoveHelicopter(0, BackOrDown);
         }
-        if (GUI.RepeatButton(new Rect(_center.x - 160, _center.y + 160, 100, 50), "Left(A)"))
+        if (GUI.RepeatButton(new Rect(_controlButtonsStartPosr.x - 160, _controlButtonsStartPosr.y + 160, 100, 50), "Left(A)"))
         {
             TurnHelicopter(BackOrDown);
         }
-        if (GUI.RepeatButton(new Rect(_center.x + 60, _center.y + 160, 100, 50), "Right(D)"))
+        if (GUI.RepeatButton(new Rect(_controlButtonsStartPosr.x + 60, _controlButtonsStartPosr.y + 160, 100, 50), "Right(D)"))
         {
             TurnHelicopter(ForwardOrUp);
         }
